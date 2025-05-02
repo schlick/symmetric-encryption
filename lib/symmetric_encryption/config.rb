@@ -9,7 +9,7 @@ module SymmetricEncryption
     #    Which environments config to load. Usually: production, development, etc.
     #    Default: Rails.env
     def self.load!(filename=nil, environment=nil)
-      config  = read_config(filename, environment)
+      config  = read_config(filename, "development")
       ciphers = extract_ciphers(config)
 
       SymmetricEncryption.cipher            = ciphers.shift
