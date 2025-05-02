@@ -598,7 +598,7 @@ module SymmetricEncryption
     rescue Errno::ENOENT => exc
       puts "\nSymmetric Encryption key file: '#{file_name}' not found or readable."
       puts "To generate the keys for the first time run: bin/rails generate symmetric_encryption:new_keys production\n\n"
-      # raise(exc)
+      raise("#{file_name}: #{exc}")
     end
 
     # Write to the supplied filename, backing up the existing file if present
